@@ -20,13 +20,14 @@ def minOperations(n):
     largest = n / i
     next = isPrime(largest)
     if next is True:
-        if n % 2 == 0:
-            return int(largest + 2)
-        return int(largest + 3)
+        return finish(n, largest)
 
 
-
-# copy all > paste (2H) > copy all > paste (4h) > paste (6h) > paste (8h) paste (10h)
+def finish(n, largest):
+    """ return function """
+    if n % 2 == 0:
+        return int(largest + 2)
+    return int(largest + 3)
 
 
 def isPrime(n):
