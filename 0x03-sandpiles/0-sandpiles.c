@@ -68,11 +68,19 @@ void topple(int grid1[3][3])
 {
 	int i, j;
 
+	int copy[3][3] = {
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0}
+	};
+
+	copy_grid(grid1, copy);
+
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
 		{
-			if (grid1[i][j] > 3)
+			if (copy[i][j] > 3)
 			{
 				grid1[i][j] -= 4;
 
@@ -103,6 +111,20 @@ void topple(int grid1[3][3])
 			}
 		}
 	}
+}
+
+void copy_grid(int grid1[3][3], int copy[3][3])
+{
+	int i, j;
+
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			copy[i][j] = grid1[i][j];
+		}
+	}
+
 }
 
 /**
