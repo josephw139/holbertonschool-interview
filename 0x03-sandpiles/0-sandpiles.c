@@ -1,41 +1,12 @@
 #include "sandpiles.h"
 /**
- * main - Prints out the following text
- *
- * Return: 0
+ * sandpiles_sum - Adds and topples two grids
+ * @grid1: first grid
+ * @grid2: second grid
  */
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
-	int stable = 0;
-
-	// Add the initial grids together
-	add_piles(grid1, grid2);
-
-	while (stable == 0)
-	{
-		// Check if stable
-		stable = check_stable(grid1);
-
-		// if stable, return
-		if (stable == 1)
-		{
-			return;
-		}
-
-		// If not stable, print new pile, then topple
-		printf("=\n");
-		print_grid(grid1);
-
-
-		// topple
-		topple(grid1);
-	}
-}
-
-
-void add_piles(int grid1[3][3], int grid2[3][3])
-{
-	int i, j;
+	int stable = 0, i, j;
 
 	for (i = 0; i < 3; i++)
 	{
@@ -44,9 +15,28 @@ void add_piles(int grid1[3][3], int grid2[3][3])
 			grid1[i][j] += grid2[i][j];
 		}
 	}
-	return;
+
+	while (stable == 0)
+	{
+		stable = check_stable(grid1);
+
+		if (stable == 1)
+		{
+			return;
+		}
+
+		printf("=\n");
+		print_grid(grid1);
+
+		topple(grid1);
+	}
 }
 
+/**
+ * check_stable - checks to see if grid1 needs to be toppled
+ * @grid1: the grid to check
+ * Return: 1 if stable, 0 if not
+ */
 int check_stable(int grid1[3][3])
 {
 	int i, j;
@@ -64,16 +54,18 @@ int check_stable(int grid1[3][3])
 	return (1);
 }
 
+/**
+ * topple - topples grid1
+ * @grid1: grid to topple
+ */
 void topple(int grid1[3][3])
 {
 	int i, j;
-
 	int copy[3][3] = {
 		{0, 0, 0},
 		{0, 0, 0},
 		{0, 0, 0}
 	};
-
 	copy_grid(grid1, copy);
 
 	for (i = 0; i < 3; i++)
@@ -84,25 +76,18 @@ void topple(int grid1[3][3])
 			{
 				grid1[i][j] -= 4;
 
-				// check above
 				if (i > 0)
 				{
 					grid1[i - 1][j] += 1;
 				}
-
-				// check right
 				if (j < 2)
 				{
 					grid1[i][j + 1] += 1;
 				}
-
-				// check below
 				if (i < 2)
 				{
 					grid1[i + 1][j] += 1;
 				}
-
-				// check left
 				if (j > 0)
 				{
 					grid1[i][j - 1] += 1;
@@ -113,6 +98,11 @@ void topple(int grid1[3][3])
 	}
 }
 
+/**
+ * copy_grid - copies grid1 to reference original values
+ * @grid1: orignal grid
+ * @copy: reference grid
+ */
 void copy_grid(int grid1[3][3], int copy[3][3])
 {
 	int i, j;
@@ -134,16 +124,16 @@ void copy_grid(int grid1[3][3], int copy[3][3])
  */
 static void print_grid(int grid[3][3])
 {
-    int i, j;
+	int i, j;
 
-    for (i = 0; i < 3; i++)
-    {
-        for (j = 0; j < 3; j++)
-        {
-            if (j)
-                printf(" ");
-            printf("%d", grid[i][j]);
-        }
-        printf("\n");
-    }
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			if (j)
+				printf(" ");
+			printf("%d", grid[i][j]);
+		}
+		printf("\n");
+	}
 }
