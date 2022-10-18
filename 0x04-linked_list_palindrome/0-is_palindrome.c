@@ -18,7 +18,7 @@ int is_palindrome(listint_t **head)
 		last = last->next;
 	}
 
-	while ((*first)->next != tmp)
+	while ((*first)->next != tmp && *first != tmp)
 	{
 		tmp = *first;
 		while (tmp->next != last)
