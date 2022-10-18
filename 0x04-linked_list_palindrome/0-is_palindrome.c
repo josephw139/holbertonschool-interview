@@ -8,7 +8,7 @@ int is_palindrome(listint_t **head)
 {
 	listint_t **first = head, *tmp = *first, *last = *first;
 
-	if (!(*head))
+	if (!(*head) || (*head && !((*head)->next)))
 	{
 		return (1);
 	}
@@ -18,7 +18,7 @@ int is_palindrome(listint_t **head)
 		last = last->next;
 	}
 
-	while ((*first) != tmp)
+	while ((*first)->next != tmp)
 	{
 		tmp = *first;
 		while (tmp->next != last)
