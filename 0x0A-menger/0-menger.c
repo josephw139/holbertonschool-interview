@@ -14,7 +14,10 @@ void menger(int level)
 		return;
 	}
 
-	for (i = 0, dim = 1; i < level; i++, dim *= 3);
+	for (i = 0, dim = 1; i < level; i++, dim *= 3)
+	{
+		continue;
+	}
 
 	for (i = 0; i < dim; i++)
 	{
