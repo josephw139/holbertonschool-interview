@@ -3,6 +3,7 @@
 0-rain
 """
 
+
 def rain(walls):
     """ Calculates how many square units of water retained """
     sum = 0
@@ -12,7 +13,7 @@ def rain(walls):
     lower = 0
     for i in range(len(walls)):
         if walls[i] != 0 and leftWall == 0:
-           leftWall = walls[i]
+            leftWall = walls[i]
         if walls[i] != 0 and leftWall != 0 and mult != 0:
             rightWall = walls[i]
         if walls[i] == 0 and leftWall != 0:
