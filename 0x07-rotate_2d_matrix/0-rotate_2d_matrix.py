@@ -1,4 +1,3 @@
-import copy
 #!/usr/bin/python3
 """
 0x07 - Rotate 2D Matrix
@@ -7,7 +6,7 @@ import copy
 
 def rotate_2d_matrix(matrix):
     """ Do a barrel roll """
-    old_matrix = copy.deepcopy(matrix)
+    old_matrix = [row[:] for row in matrix]
 
     for row in range(len(matrix)):
         col = len(matrix) - 1
