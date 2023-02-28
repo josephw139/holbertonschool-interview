@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-import sys
 """
 0-making_change
 """
+import sys
 
 
 def makeChange(coins, total):
