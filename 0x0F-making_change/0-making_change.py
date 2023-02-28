@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 import sys
+"""
+0-making_change
+"""
 
 
 def makeChange(coins, total):
+  """returns minimum # of coins to get total"""
   if total <= 0:
     return 0
 
