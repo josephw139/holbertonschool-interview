@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+Calculates perimeter around binary islands
+"""
 
 def island_perimeter(grid):
     """Calculates perimeter around binary islands"""
