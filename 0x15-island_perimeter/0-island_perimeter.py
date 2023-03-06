@@ -3,6 +3,7 @@
 Calculates perimeter around binary islands
 """
 
+
 def island_perimeter(grid):
     """Calculates perimeter around binary islands"""
     perimeter = 0
@@ -12,13 +13,13 @@ def island_perimeter(grid):
                 # check above
                 if grid[row - 1][i] == 0:
                     perimeter += 1
-                #check left
+                # check left
                 if grid[row][i - 1] == 0:
                     perimeter += 1
-                #check right
+                # check right
                 if grid[row][i + 1] == 0:
                     perimeter += 1
-                #check below
+                # check below
                 if grid[row + 1][i] == 0:
                     perimeter += 1
 
