@@ -18,12 +18,12 @@ def island_perimeter(grid):
                 # check left
                 if i == 0:
                     perimeter += 1
-                elif grid[row][i - 1]  == 0:
+                elif grid[row][i - 1] == 0:
                     perimeter += 1
                 # check right
                 if i == len(grid[0]) - 1:
                     perimeter += 1
-                elif grid[row][i + 1]  == 0:
+                elif grid[row][i + 1] == 0:
                     perimeter += 1
                 # check below
                 if row == len(grid) - 1:
