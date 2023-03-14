@@ -3,6 +3,7 @@
 PrimeGame
 """
 
+
 def isWinner(x, nums):
-  """PrimeGame"""
-  return "Ben"
+    """PrimeGame"""
+    return "Ben"
